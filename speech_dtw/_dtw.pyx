@@ -1,25 +1,3 @@
-"""
-Dynamic time warping cost calculation functions.
-
-Both paths and costs are calculated. Some of the distance calculation code is
-based on:
-
-- http://jakevdp.github.io/blog/2012/08/08/memoryview-benchmarks/
-
-The dynamic programming code is based on:
-
-- http://en.wikipedia.org/wiki/Dynamic_time_warping
-- http://www.ee.columbia.edu/ln/labrosa/matlab/dtw/dp.m
-- https://github.com/mdeklerk/DTW/blob/master/_dtw.pyx
-
-The notation in the first reference was followed, while Dan Ellis's code
-(second reference) was used to check for correctness.
-
-Author: Herman Kamper
-Contact: h.kamper@sms.ed.ac.uk
-Date: 2014
-"""
-
 cimport cython
 cimport numpy as np
 from cpython cimport bool
@@ -210,7 +188,6 @@ def multivariate_dtw_cost_cosine(
             costs[1] = cost_mat[i, j + 1]   # insertion (1)
             costs[2] = cost_mat[i + 1, j]   # deletion (2)
             cost_mat[i + 1, j + 1] = cosine_dist(s, t, i, j) + min3(costs)
-            print(cost_mat)
 
     if dur_normalize:
         return cost_mat[N, M]/(N + M)
@@ -357,37 +334,3 @@ def multivariate_dtw(double[:, ::1] s, double[:, ::1] t, str metric="cosine"):
         path.append((i, j))
 
     return (path, cost_mat[N, M])
-
-
-# @cython.boundscheck(False)
-# @cython.wraparound(False)
-# @cython.cdivision(True)
-# def multivariate_dtw_cosine(double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False):
-#     """
-#     Calculate the DTW alignment between vector time series `s` and `t` using
-#     cosine distance and return the cost and path.
-#     """
-#     cdef int N, M
-#     cdef Py_ssize_t i, j
-#     cdef double[:, ::1] cost_mat
-#     cdef double[3] costs
-
-#     N = s.shape[0]
-#     M = t.shape[0]
-    
-#     # Initialize the cost matrix
-#     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX
-#     cost_mat[0, 0] = 0.
-
-#     # Fill the cost matrix
-#     for i in range(N):
-#         for j in range(M):
-#             costs[0] = cost_mat[i, j]       # match (0)
-#             costs[1] = cost_mat[i, j + 1]   # insertion (1)
-#             costs[2] = cost_mat[i + 1, j]   # deletion (2)
-#             cost_mat[i + 1, j + 1] = cosine_dist(s, t, i, j) + min3(costs)
-
-#     if dur_normalize:
-#         return cost_mat[N, M]/(N + M)
-#     else:
-#         return cost_mat[N, M]

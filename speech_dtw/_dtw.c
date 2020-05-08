@@ -1205,7 +1205,7 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "speech_dtw/_dtw.pyx":33
+/* "speech_dtw/_dtw.pyx":11
  * 
  * # Define a function pointer to a metric function
  * ctypedef double (*metric_ptr)(             # <<<<<<<<<<<<<<
@@ -1944,17 +1944,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 
-/* MemviewDtypeToObject.proto */
-static CYTHON_INLINE PyObject *__pyx_memview_get_double(const char *itemp);
-static CYTHON_INLINE int __pyx_memview_set_double(const char *itemp, PyObject *obj);
-
-/* Print.proto */
-static int __Pyx_Print(PyObject*, PyObject *, int);
-#if CYTHON_COMPILING_IN_PYPY || PY_MAJOR_VERSION >= 3
-static PyObject* __pyx_print = 0;
-static PyObject* __pyx_print_kwargs = 0;
-#endif
-
 /* RealImag.proto */
 #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -2062,9 +2051,6 @@ __pyx_memoryview_copy_new_contig(const __Pyx_memviewslice *from_mvs,
                                  const char *mode, int ndim,
                                  size_t sizeof_dtype, int contig_flag,
                                  int dtype_is_object);
-
-/* PrintOne.proto */
-static int __Pyx_PrintOne(PyObject* stream, PyObject *o);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
@@ -2267,12 +2253,10 @@ static const char __pyx_k_s[] = "s";
 static const char __pyx_k_t[] = "t";
 static const char __pyx_k_id[] = "id";
 static const char __pyx_k_np[] = "np";
-static const char __pyx_k_end[] = "end";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
 static const char __pyx_k_base[] = "base";
 static const char __pyx_k_dict[] = "__dict__";
-static const char __pyx_k_file[] = "file";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_mode[] = "mode";
 static const char __pyx_k_name[] = "name";
@@ -2290,7 +2274,6 @@ static const char __pyx_k_dtype[] = "dtype";
 static const char __pyx_k_error[] = "error";
 static const char __pyx_k_flags[] = "flags";
 static const char __pyx_k_numpy[] = "numpy";
-static const char __pyx_k_print[] = "print";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_shape[] = "shape";
 static const char __pyx_k_start[] = "start";
@@ -2365,7 +2348,6 @@ static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C cont
 static const char __pyx_k_multivariate_dtw_cost_cosine[] = "multivariate_dtw_cost_cosine";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
-static const char __pyx_k_Dynamic_time_warping_cost_calcu[] = "\nDynamic time warping cost calculation functions.\n\nBoth paths and costs are calculated. Some of the distance calculation code is\nbased on:\n\n- http://jakevdp.github.io/blog/2012/08/08/memoryview-benchmarks/\n\nThe dynamic programming code is based on:\n\n- http://en.wikipedia.org/wiki/Dynamic_time_warping\n- http://www.ee.columbia.edu/ln/labrosa/matlab/dtw/dp.m\n- https://github.com/mdeklerk/DTW/blob/master/_dtw.pyx\n\nThe notation in the first reference was followed, while Dan Ellis's code\n(second reference) was used to check for correctness.\n\nAuthor: Herman Kamper\nContact: h.kamper@sms.ed.ac.uk\nDate: 2014\n";
 static const char __pyx_k_multivariate_dtw_cost_euclidean[] = "multivariate_dtw_cost_euclidean";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
@@ -2439,11 +2421,9 @@ static PyObject *__pyx_n_s_dtype;
 static PyObject *__pyx_n_s_dtype_is_object;
 static PyObject *__pyx_n_s_dur_normalize;
 static PyObject *__pyx_n_s_encode;
-static PyObject *__pyx_n_s_end;
 static PyObject *__pyx_n_s_enumerate;
 static PyObject *__pyx_n_s_error;
 static PyObject *__pyx_n_s_euclidean;
-static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_flags;
 static PyObject *__pyx_n_s_format;
 static PyObject *__pyx_n_s_fortran;
@@ -2481,7 +2461,6 @@ static PyObject *__pyx_n_s_obj;
 static PyObject *__pyx_n_s_pack;
 static PyObject *__pyx_n_s_path;
 static PyObject *__pyx_n_s_pickle;
-static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_pyx_PickleError;
 static PyObject *__pyx_n_s_pyx_checksum;
 static PyObject *__pyx_n_s_pyx_getbuffer;
@@ -2626,7 +2605,7 @@ static PyObject *__pyx_codeobj__38;
 static PyObject *__pyx_codeobj__45;
 /* Late includes */
 
-/* "speech_dtw/_dtw.pyx":40
+/* "speech_dtw/_dtw.pyx":18
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef inline double min3(double[3] v):             # <<<<<<<<<<<<<<
@@ -2643,7 +2622,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_min3(double *__pyx_v_v) {
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("min3", 0);
 
-  /* "speech_dtw/_dtw.pyx":41
+  /* "speech_dtw/_dtw.pyx":19
  * @cython.wraparound(False)
  * cdef inline double min3(double[3] v):
  *     cdef Py_ssize_t i, m = 0             # <<<<<<<<<<<<<<
@@ -2652,7 +2631,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_min3(double *__pyx_v_v) {
  */
   __pyx_v_m = 0;
 
-  /* "speech_dtw/_dtw.pyx":42
+  /* "speech_dtw/_dtw.pyx":20
  * cdef inline double min3(double[3] v):
  *     cdef Py_ssize_t i, m = 0
  *     for i in range(1, 3):             # <<<<<<<<<<<<<<
@@ -2662,7 +2641,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_min3(double *__pyx_v_v) {
   for (__pyx_t_1 = 1; __pyx_t_1 < 3; __pyx_t_1+=1) {
     __pyx_v_i = __pyx_t_1;
 
-    /* "speech_dtw/_dtw.pyx":43
+    /* "speech_dtw/_dtw.pyx":21
  *     cdef Py_ssize_t i, m = 0
  *     for i in range(1, 3):
  *         if v[i] < v[m]:             # <<<<<<<<<<<<<<
@@ -2672,7 +2651,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_min3(double *__pyx_v_v) {
     __pyx_t_2 = (((__pyx_v_v[__pyx_v_i]) < (__pyx_v_v[__pyx_v_m])) != 0);
     if (__pyx_t_2) {
 
-      /* "speech_dtw/_dtw.pyx":44
+      /* "speech_dtw/_dtw.pyx":22
  *     for i in range(1, 3):
  *         if v[i] < v[m]:
  *             m = i             # <<<<<<<<<<<<<<
@@ -2681,7 +2660,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_min3(double *__pyx_v_v) {
  */
       __pyx_v_m = __pyx_v_i;
 
-      /* "speech_dtw/_dtw.pyx":43
+      /* "speech_dtw/_dtw.pyx":21
  *     cdef Py_ssize_t i, m = 0
  *     for i in range(1, 3):
  *         if v[i] < v[m]:             # <<<<<<<<<<<<<<
@@ -2691,7 +2670,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_min3(double *__pyx_v_v) {
     }
   }
 
-  /* "speech_dtw/_dtw.pyx":45
+  /* "speech_dtw/_dtw.pyx":23
  *         if v[i] < v[m]:
  *             m = i
  *     return v[m]             # <<<<<<<<<<<<<<
@@ -2701,7 +2680,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_min3(double *__pyx_v_v) {
   __pyx_r = (__pyx_v_v[__pyx_v_m]);
   goto __pyx_L0;
 
-  /* "speech_dtw/_dtw.pyx":40
+  /* "speech_dtw/_dtw.pyx":18
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef inline double min3(double[3] v):             # <<<<<<<<<<<<<<
@@ -2715,7 +2694,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_min3(double *__pyx_v_v) {
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":50
+/* "speech_dtw/_dtw.pyx":28
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef inline Py_ssize_t i_min3(double[3] v):             # <<<<<<<<<<<<<<
@@ -2732,7 +2711,7 @@ static CYTHON_INLINE Py_ssize_t __pyx_f_10speech_dtw_4_dtw_i_min3(double *__pyx_
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("i_min3", 0);
 
-  /* "speech_dtw/_dtw.pyx":51
+  /* "speech_dtw/_dtw.pyx":29
  * @cython.wraparound(False)
  * cdef inline Py_ssize_t i_min3(double[3] v):
  *     cdef Py_ssize_t i, m = 0             # <<<<<<<<<<<<<<
@@ -2741,7 +2720,7 @@ static CYTHON_INLINE Py_ssize_t __pyx_f_10speech_dtw_4_dtw_i_min3(double *__pyx_
  */
   __pyx_v_m = 0;
 
-  /* "speech_dtw/_dtw.pyx":52
+  /* "speech_dtw/_dtw.pyx":30
  * cdef inline Py_ssize_t i_min3(double[3] v):
  *     cdef Py_ssize_t i, m = 0
  *     for i in range(1, 3):             # <<<<<<<<<<<<<<
@@ -2751,7 +2730,7 @@ static CYTHON_INLINE Py_ssize_t __pyx_f_10speech_dtw_4_dtw_i_min3(double *__pyx_
   for (__pyx_t_1 = 1; __pyx_t_1 < 3; __pyx_t_1+=1) {
     __pyx_v_i = __pyx_t_1;
 
-    /* "speech_dtw/_dtw.pyx":53
+    /* "speech_dtw/_dtw.pyx":31
  *     cdef Py_ssize_t i, m = 0
  *     for i in range(1, 3):
  *         if v[i] < v[m]:             # <<<<<<<<<<<<<<
@@ -2761,7 +2740,7 @@ static CYTHON_INLINE Py_ssize_t __pyx_f_10speech_dtw_4_dtw_i_min3(double *__pyx_
     __pyx_t_2 = (((__pyx_v_v[__pyx_v_i]) < (__pyx_v_v[__pyx_v_m])) != 0);
     if (__pyx_t_2) {
 
-      /* "speech_dtw/_dtw.pyx":54
+      /* "speech_dtw/_dtw.pyx":32
  *     for i in range(1, 3):
  *         if v[i] < v[m]:
  *             m = i             # <<<<<<<<<<<<<<
@@ -2770,7 +2749,7 @@ static CYTHON_INLINE Py_ssize_t __pyx_f_10speech_dtw_4_dtw_i_min3(double *__pyx_
  */
       __pyx_v_m = __pyx_v_i;
 
-      /* "speech_dtw/_dtw.pyx":53
+      /* "speech_dtw/_dtw.pyx":31
  *     cdef Py_ssize_t i, m = 0
  *     for i in range(1, 3):
  *         if v[i] < v[m]:             # <<<<<<<<<<<<<<
@@ -2780,7 +2759,7 @@ static CYTHON_INLINE Py_ssize_t __pyx_f_10speech_dtw_4_dtw_i_min3(double *__pyx_
     }
   }
 
-  /* "speech_dtw/_dtw.pyx":55
+  /* "speech_dtw/_dtw.pyx":33
  *         if v[i] < v[m]:
  *             m = i
  *     return m             # <<<<<<<<<<<<<<
@@ -2790,7 +2769,7 @@ static CYTHON_INLINE Py_ssize_t __pyx_f_10speech_dtw_4_dtw_i_min3(double *__pyx_
   __pyx_r = __pyx_v_m;
   goto __pyx_L0;
 
-  /* "speech_dtw/_dtw.pyx":50
+  /* "speech_dtw/_dtw.pyx":28
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * cdef inline Py_ssize_t i_min3(double[3] v):             # <<<<<<<<<<<<<<
@@ -2804,7 +2783,7 @@ static CYTHON_INLINE Py_ssize_t __pyx_f_10speech_dtw_4_dtw_i_min3(double *__pyx_
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":60
+/* "speech_dtw/_dtw.pyx":38
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def dp_cost(double[:, ::1] dist_mat):             # <<<<<<<<<<<<<<
@@ -2822,7 +2801,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_1dp_cost(PyObject *__pyx_self, PyOb
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("dp_cost (wrapper)", 0);
   assert(__pyx_arg_dist_mat); {
-    __pyx_v_dist_mat = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_arg_dist_mat, PyBUF_WRITABLE); if (unlikely(!__pyx_v_dist_mat.memview)) __PYX_ERR(0, 60, __pyx_L3_error)
+    __pyx_v_dist_mat = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_arg_dist_mat, PyBUF_WRITABLE); if (unlikely(!__pyx_v_dist_mat.memview)) __PYX_ERR(0, 38, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -2874,7 +2853,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
   Py_ssize_t __pyx_t_26;
   __Pyx_RefNannySetupContext("dp_cost", 0);
 
-  /* "speech_dtw/_dtw.pyx":72
+  /* "speech_dtw/_dtw.pyx":50
  *     cdef double[3] costs
  * 
  *     N = dist_mat.shape[0]             # <<<<<<<<<<<<<<
@@ -2883,7 +2862,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
  */
   __pyx_v_N = (__pyx_v_dist_mat.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":73
+  /* "speech_dtw/_dtw.pyx":51
  * 
  *     N = dist_mat.shape[0]
  *     M = dist_mat.shape[1]             # <<<<<<<<<<<<<<
@@ -2892,23 +2871,23 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
  */
   __pyx_v_M = (__pyx_v_dist_mat.shape[1]);
 
-  /* "speech_dtw/_dtw.pyx":76
+  /* "speech_dtw/_dtw.pyx":54
  * 
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1), dtype=np.double) + DBL_MAX             # <<<<<<<<<<<<<<
  *     cost_mat[0, 0] = 0.
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -2916,38 +2895,38 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
   __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_double); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_double); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyNumber_Add(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_3, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_cost_mat = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "speech_dtw/_dtw.pyx":77
+  /* "speech_dtw/_dtw.pyx":55
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1), dtype=np.double) + DBL_MAX
  *     cost_mat[0, 0] = 0.             # <<<<<<<<<<<<<<
@@ -2958,7 +2937,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
   __pyx_t_8 = 0;
   *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_7 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_8)) )) = 0.;
 
-  /* "speech_dtw/_dtw.pyx":80
+  /* "speech_dtw/_dtw.pyx":58
  * 
  *     # Fill the cost matrix
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -2970,7 +2949,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "speech_dtw/_dtw.pyx":81
+    /* "speech_dtw/_dtw.pyx":59
  *     # Fill the cost matrix
  *     for i in range(N):
  *         for j in range(M):             # <<<<<<<<<<<<<<
@@ -2982,7 +2961,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
     for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
       __pyx_v_j = __pyx_t_14;
 
-      /* "speech_dtw/_dtw.pyx":82
+      /* "speech_dtw/_dtw.pyx":60
  *     for i in range(N):
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)             # <<<<<<<<<<<<<<
@@ -2993,7 +2972,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
       __pyx_t_16 = __pyx_v_j;
       (__pyx_v_costs[0]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_15 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_16)) )));
 
-      /* "speech_dtw/_dtw.pyx":83
+      /* "speech_dtw/_dtw.pyx":61
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)             # <<<<<<<<<<<<<<
@@ -3004,7 +2983,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
       __pyx_t_18 = (__pyx_v_j + 1);
       (__pyx_v_costs[1]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_17 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_18)) )));
 
-      /* "speech_dtw/_dtw.pyx":84
+      /* "speech_dtw/_dtw.pyx":62
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)             # <<<<<<<<<<<<<<
@@ -3015,7 +2994,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
       __pyx_t_20 = __pyx_v_j;
       (__pyx_v_costs[2]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_19 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_20)) )));
 
-      /* "speech_dtw/_dtw.pyx":85
+      /* "speech_dtw/_dtw.pyx":63
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)
  *             cost_mat[i + 1, j + 1] = dist_mat[i, j] + min3(costs)             # <<<<<<<<<<<<<<
@@ -3030,7 +3009,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
     }
   }
 
-  /* "speech_dtw/_dtw.pyx":87
+  /* "speech_dtw/_dtw.pyx":65
  *             cost_mat[i + 1, j + 1] = dist_mat[i, j] + min3(costs)
  * 
  *     return cost_mat[N, M]             # <<<<<<<<<<<<<<
@@ -3040,13 +3019,13 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_25 = __pyx_v_N;
   __pyx_t_26 = __pyx_v_M;
-  __pyx_t_3 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_25 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_26)) )))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_25 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_26)) )))); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "speech_dtw/_dtw.pyx":60
+  /* "speech_dtw/_dtw.pyx":38
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def dp_cost(double[:, ::1] dist_mat):             # <<<<<<<<<<<<<<
@@ -3072,7 +3051,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_dp_cost(CYTHON_UNUSED PyObject *__p
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":93
+/* "speech_dtw/_dtw.pyx":71
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * cdef inline double cosine_dist(             # <<<<<<<<<<<<<<
@@ -3105,7 +3084,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
   Py_ssize_t __pyx_t_15;
   __Pyx_RefNannySetupContext("cosine_dist", 0);
 
-  /* "speech_dtw/_dtw.pyx":97
+  /* "speech_dtw/_dtw.pyx":75
  *         ):
  *     """Calculate the cosine distance between `x[x_i, :]` and `y[y_i, :]`."""
  *     cdef int N = x.shape[1]             # <<<<<<<<<<<<<<
@@ -3114,7 +3093,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
  */
   __pyx_v_N = (__pyx_v_x.shape[1]);
 
-  /* "speech_dtw/_dtw.pyx":99
+  /* "speech_dtw/_dtw.pyx":77
  *     cdef int N = x.shape[1]
  *     cdef Py_ssize_t i
  *     cdef double dot = 0.             # <<<<<<<<<<<<<<
@@ -3123,7 +3102,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
  */
   __pyx_v_dot = 0.;
 
-  /* "speech_dtw/_dtw.pyx":100
+  /* "speech_dtw/_dtw.pyx":78
  *     cdef Py_ssize_t i
  *     cdef double dot = 0.
  *     cdef double norm_x = 0.             # <<<<<<<<<<<<<<
@@ -3132,7 +3111,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
  */
   __pyx_v_norm_x = 0.;
 
-  /* "speech_dtw/_dtw.pyx":101
+  /* "speech_dtw/_dtw.pyx":79
  *     cdef double dot = 0.
  *     cdef double norm_x = 0.
  *     cdef double norm_y = 0.             # <<<<<<<<<<<<<<
@@ -3141,7 +3120,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
  */
   __pyx_v_norm_y = 0.;
 
-  /* "speech_dtw/_dtw.pyx":102
+  /* "speech_dtw/_dtw.pyx":80
  *     cdef double norm_x = 0.
  *     cdef double norm_y = 0.
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -3153,7 +3132,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "speech_dtw/_dtw.pyx":103
+    /* "speech_dtw/_dtw.pyx":81
  *     cdef double norm_y = 0.
  *     for i in range(N):
  *         dot += x[x_i, i] * y[y_i, i]             # <<<<<<<<<<<<<<
@@ -3166,7 +3145,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
     __pyx_t_7 = __pyx_v_i;
     __pyx_v_dot = (__pyx_v_dot + ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_4 * __pyx_v_x.strides[0]) )) + __pyx_t_5)) ))) * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_6 * __pyx_v_y.strides[0]) )) + __pyx_t_7)) )))));
 
-    /* "speech_dtw/_dtw.pyx":104
+    /* "speech_dtw/_dtw.pyx":82
  *     for i in range(N):
  *         dot += x[x_i, i] * y[y_i, i]
  *         norm_x += x[x_i, i]*x[x_i, i]             # <<<<<<<<<<<<<<
@@ -3179,7 +3158,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
     __pyx_t_11 = __pyx_v_i;
     __pyx_v_norm_x = (__pyx_v_norm_x + ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) )) + __pyx_t_9)) ))) * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_10 * __pyx_v_x.strides[0]) )) + __pyx_t_11)) )))));
 
-    /* "speech_dtw/_dtw.pyx":105
+    /* "speech_dtw/_dtw.pyx":83
  *         dot += x[x_i, i] * y[y_i, i]
  *         norm_x += x[x_i, i]*x[x_i, i]
  *         norm_y += y[y_i, i]*y[y_i, i]             # <<<<<<<<<<<<<<
@@ -3193,7 +3172,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
     __pyx_v_norm_y = (__pyx_v_norm_y + ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_12 * __pyx_v_y.strides[0]) )) + __pyx_t_13)) ))) * (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_14 * __pyx_v_y.strides[0]) )) + __pyx_t_15)) )))));
   }
 
-  /* "speech_dtw/_dtw.pyx":106
+  /* "speech_dtw/_dtw.pyx":84
  *         norm_x += x[x_i, i]*x[x_i, i]
  *         norm_y += y[y_i, i]*y[y_i, i]
  *     return 1. - dot/(sqrt(norm_x) * sqrt(norm_y))             # <<<<<<<<<<<<<<
@@ -3203,7 +3182,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
   __pyx_r = (1. - (__pyx_v_dot / (sqrt(__pyx_v_norm_x) * sqrt(__pyx_v_norm_y))));
   goto __pyx_L0;
 
-  /* "speech_dtw/_dtw.pyx":93
+  /* "speech_dtw/_dtw.pyx":71
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * cdef inline double cosine_dist(             # <<<<<<<<<<<<<<
@@ -3217,7 +3196,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_cosine_dist(__Pyx_memview
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":112
+/* "speech_dtw/_dtw.pyx":90
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * cdef inline double euclidean_dist(             # <<<<<<<<<<<<<<
@@ -3244,7 +3223,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_dist(__Pyx_memv
   Py_ssize_t __pyx_t_11;
   __Pyx_RefNannySetupContext("euclidean_dist", 0);
 
-  /* "speech_dtw/_dtw.pyx":116
+  /* "speech_dtw/_dtw.pyx":94
  *         ):
  *     """Calculate the Euclidean distance between `x[x_i, :]` and `y[y_i, :]`."""
  *     cdef int N = x.shape[1]             # <<<<<<<<<<<<<<
@@ -3253,7 +3232,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_dist(__Pyx_memv
  */
   __pyx_v_N = (__pyx_v_x.shape[1]);
 
-  /* "speech_dtw/_dtw.pyx":118
+  /* "speech_dtw/_dtw.pyx":96
  *     cdef int N = x.shape[1]
  *     cdef Py_ssize_t i
  *     cdef double sum_square_diffs = 0.             # <<<<<<<<<<<<<<
@@ -3262,7 +3241,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_dist(__Pyx_memv
  */
   __pyx_v_sum_square_diffs = 0.;
 
-  /* "speech_dtw/_dtw.pyx":119
+  /* "speech_dtw/_dtw.pyx":97
  *     cdef Py_ssize_t i
  *     cdef double sum_square_diffs = 0.
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -3274,7 +3253,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_dist(__Pyx_memv
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "speech_dtw/_dtw.pyx":120
+    /* "speech_dtw/_dtw.pyx":98
  *     cdef double sum_square_diffs = 0.
  *     for i in range(N):
  *         sum_square_diffs += (x[x_i, i] - y[y_i, i]) * (x[x_i, i] - y[y_i, i])             # <<<<<<<<<<<<<<
@@ -3292,7 +3271,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_dist(__Pyx_memv
     __pyx_v_sum_square_diffs = (__pyx_v_sum_square_diffs + (((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_4 * __pyx_v_x.strides[0]) )) + __pyx_t_5)) ))) - (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_6 * __pyx_v_y.strides[0]) )) + __pyx_t_7)) )))) * ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) )) + __pyx_t_9)) ))) - (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_10 * __pyx_v_y.strides[0]) )) + __pyx_t_11)) ))))));
   }
 
-  /* "speech_dtw/_dtw.pyx":121
+  /* "speech_dtw/_dtw.pyx":99
  *     for i in range(N):
  *         sum_square_diffs += (x[x_i, i] - y[y_i, i]) * (x[x_i, i] - y[y_i, i])
  *     return sqrt(sum_square_diffs)             # <<<<<<<<<<<<<<
@@ -3302,7 +3281,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_dist(__Pyx_memv
   __pyx_r = sqrt(__pyx_v_sum_square_diffs);
   goto __pyx_L0;
 
-  /* "speech_dtw/_dtw.pyx":112
+  /* "speech_dtw/_dtw.pyx":90
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * cdef inline double euclidean_dist(             # <<<<<<<<<<<<<<
@@ -3316,7 +3295,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_dist(__Pyx_memv
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":127
+/* "speech_dtw/_dtw.pyx":105
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * cdef inline double euclidean_squared_dist(             # <<<<<<<<<<<<<<
@@ -3343,7 +3322,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_squared_dist(__
   Py_ssize_t __pyx_t_11;
   __Pyx_RefNannySetupContext("euclidean_squared_dist", 0);
 
-  /* "speech_dtw/_dtw.pyx":131
+  /* "speech_dtw/_dtw.pyx":109
  *         ):
  *     """Calculate the Euclidean distance between `x[x_i, :]` and `y[y_i, :]`."""
  *     cdef int N = x.shape[1]             # <<<<<<<<<<<<<<
@@ -3352,7 +3331,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_squared_dist(__
  */
   __pyx_v_N = (__pyx_v_x.shape[1]);
 
-  /* "speech_dtw/_dtw.pyx":133
+  /* "speech_dtw/_dtw.pyx":111
  *     cdef int N = x.shape[1]
  *     cdef Py_ssize_t i
  *     cdef double sum_square_diffs = 0.             # <<<<<<<<<<<<<<
@@ -3361,7 +3340,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_squared_dist(__
  */
   __pyx_v_sum_square_diffs = 0.;
 
-  /* "speech_dtw/_dtw.pyx":134
+  /* "speech_dtw/_dtw.pyx":112
  *     cdef Py_ssize_t i
  *     cdef double sum_square_diffs = 0.
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -3373,7 +3352,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_squared_dist(__
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "speech_dtw/_dtw.pyx":135
+    /* "speech_dtw/_dtw.pyx":113
  *     cdef double sum_square_diffs = 0.
  *     for i in range(N):
  *         sum_square_diffs += (x[x_i, i] - y[y_i, i]) * (x[x_i, i] - y[y_i, i])             # <<<<<<<<<<<<<<
@@ -3391,7 +3370,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_squared_dist(__
     __pyx_v_sum_square_diffs = (__pyx_v_sum_square_diffs + (((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_4 * __pyx_v_x.strides[0]) )) + __pyx_t_5)) ))) - (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_6 * __pyx_v_y.strides[0]) )) + __pyx_t_7)) )))) * ((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_x.data + __pyx_t_8 * __pyx_v_x.strides[0]) )) + __pyx_t_9)) ))) - (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_y.data + __pyx_t_10 * __pyx_v_y.strides[0]) )) + __pyx_t_11)) ))))));
   }
 
-  /* "speech_dtw/_dtw.pyx":136
+  /* "speech_dtw/_dtw.pyx":114
  *     for i in range(N):
  *         sum_square_diffs += (x[x_i, i] - y[y_i, i]) * (x[x_i, i] - y[y_i, i])
  *     return sum_square_diffs             # <<<<<<<<<<<<<<
@@ -3401,7 +3380,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_squared_dist(__
   __pyx_r = __pyx_v_sum_square_diffs;
   goto __pyx_L0;
 
-  /* "speech_dtw/_dtw.pyx":127
+  /* "speech_dtw/_dtw.pyx":105
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * cdef inline double euclidean_squared_dist(             # <<<<<<<<<<<<<<
@@ -3415,7 +3394,7 @@ static CYTHON_INLINE double __pyx_f_10speech_dtw_4_dtw_euclidean_squared_dist(__
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":141
+/* "speech_dtw/_dtw.pyx":119
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def multivariate_dtw_cost(             # <<<<<<<<<<<<<<
@@ -3460,7 +3439,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_3multivariate_dtw_cost(PyObject *__
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost", 0, 2, 3, 1); __PYX_ERR(0, 141, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost", 0, 2, 3, 1); __PYX_ERR(0, 119, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -3470,7 +3449,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_3multivariate_dtw_cost(PyObject *__
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw_cost") < 0)) __PYX_ERR(0, 141, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw_cost") < 0)) __PYX_ERR(0, 119, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3482,19 +3461,19 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_3multivariate_dtw_cost(PyObject *__
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 142, __pyx_L3_error)
-    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 142, __pyx_L3_error)
+    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 120, __pyx_L3_error)
+    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 120, __pyx_L3_error)
     __pyx_v_metric = ((PyObject*)values[2]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 141, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 119, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("speech_dtw._dtw.multivariate_dtw_cost", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_metric), (&PyString_Type), 1, "metric", 1))) __PYX_ERR(0, 142, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_metric), (&PyString_Type), 1, "metric", 1))) __PYX_ERR(0, 120, __pyx_L1_error)
   __pyx_r = __pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(__pyx_self, __pyx_v_s, __pyx_v_t, __pyx_v_metric);
 
   /* function exit code */
@@ -3544,18 +3523,18 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
   Py_ssize_t __pyx_t_26;
   __Pyx_RefNannySetupContext("multivariate_dtw_cost", 0);
 
-  /* "speech_dtw/_dtw.pyx":156
+  /* "speech_dtw/_dtw.pyx":134
  * 
  *     cdef metric_ptr dist_func
  *     if metric == "cosine":             # <<<<<<<<<<<<<<
  *         dist_func = &cosine_dist
  *     elif metric == "euclidean":
  */
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_metric, __pyx_n_s_cosine, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_metric, __pyx_n_s_cosine, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 134, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "speech_dtw/_dtw.pyx":157
+    /* "speech_dtw/_dtw.pyx":135
  *     cdef metric_ptr dist_func
  *     if metric == "cosine":
  *         dist_func = &cosine_dist             # <<<<<<<<<<<<<<
@@ -3564,7 +3543,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
  */
     __pyx_v_dist_func = (&__pyx_f_10speech_dtw_4_dtw_cosine_dist);
 
-    /* "speech_dtw/_dtw.pyx":156
+    /* "speech_dtw/_dtw.pyx":134
  * 
  *     cdef metric_ptr dist_func
  *     if metric == "cosine":             # <<<<<<<<<<<<<<
@@ -3574,18 +3553,18 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
     goto __pyx_L3;
   }
 
-  /* "speech_dtw/_dtw.pyx":158
+  /* "speech_dtw/_dtw.pyx":136
  *     if metric == "cosine":
  *         dist_func = &cosine_dist
  *     elif metric == "euclidean":             # <<<<<<<<<<<<<<
  *         dist_func = &euclidean_dist
  *     else:
  */
-  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_v_metric, __pyx_n_s_euclidean, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_v_metric, __pyx_n_s_euclidean, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 136, __pyx_L1_error)
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (likely(__pyx_t_1)) {
 
-    /* "speech_dtw/_dtw.pyx":159
+    /* "speech_dtw/_dtw.pyx":137
  *         dist_func = &cosine_dist
  *     elif metric == "euclidean":
  *         dist_func = &euclidean_dist             # <<<<<<<<<<<<<<
@@ -3594,7 +3573,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
  */
     __pyx_v_dist_func = (&__pyx_f_10speech_dtw_4_dtw_euclidean_dist);
 
-    /* "speech_dtw/_dtw.pyx":158
+    /* "speech_dtw/_dtw.pyx":136
  *     if metric == "cosine":
  *         dist_func = &cosine_dist
  *     elif metric == "euclidean":             # <<<<<<<<<<<<<<
@@ -3604,7 +3583,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
     goto __pyx_L3;
   }
 
-  /* "speech_dtw/_dtw.pyx":161
+  /* "speech_dtw/_dtw.pyx":139
  *         dist_func = &euclidean_dist
  *     else:
  *         raise ValueError("Unrecognized metric.")             # <<<<<<<<<<<<<<
@@ -3612,15 +3591,15 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
  *     N = s.shape[0]
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 161, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 139, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 161, __pyx_L1_error)
+    __PYX_ERR(0, 139, __pyx_L1_error)
   }
   __pyx_L3:;
 
-  /* "speech_dtw/_dtw.pyx":163
+  /* "speech_dtw/_dtw.pyx":141
  *         raise ValueError("Unrecognized metric.")
  * 
  *     N = s.shape[0]             # <<<<<<<<<<<<<<
@@ -3629,7 +3608,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
  */
   __pyx_v_N = (__pyx_v_s.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":164
+  /* "speech_dtw/_dtw.pyx":142
  * 
  *     N = s.shape[0]
  *     M = t.shape[0]             # <<<<<<<<<<<<<<
@@ -3638,23 +3617,23 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
  */
   __pyx_v_M = (__pyx_v_t.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":167
+  /* "speech_dtw/_dtw.pyx":145
  * 
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX             # <<<<<<<<<<<<<<
  *     cost_mat[0, 0] = 0.
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4);
@@ -3675,22 +3654,22 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
   __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_7 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_cost_mat = __pyx_t_8;
   __pyx_t_8.memview = NULL;
   __pyx_t_8.data = NULL;
 
-  /* "speech_dtw/_dtw.pyx":168
+  /* "speech_dtw/_dtw.pyx":146
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX
  *     cost_mat[0, 0] = 0.             # <<<<<<<<<<<<<<
@@ -3701,7 +3680,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
   __pyx_t_10 = 0;
   *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_9 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_10)) )) = 0.;
 
-  /* "speech_dtw/_dtw.pyx":171
+  /* "speech_dtw/_dtw.pyx":149
  * 
  *     # Fill the cost matrix
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -3713,7 +3692,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
   for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_12; __pyx_t_13+=1) {
     __pyx_v_i = __pyx_t_13;
 
-    /* "speech_dtw/_dtw.pyx":172
+    /* "speech_dtw/_dtw.pyx":150
  *     # Fill the cost matrix
  *     for i in range(N):
  *         for j in range(M):             # <<<<<<<<<<<<<<
@@ -3725,7 +3704,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
     for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
       __pyx_v_j = __pyx_t_16;
 
-      /* "speech_dtw/_dtw.pyx":173
+      /* "speech_dtw/_dtw.pyx":151
  *     for i in range(N):
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)             # <<<<<<<<<<<<<<
@@ -3736,7 +3715,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
       __pyx_t_18 = __pyx_v_j;
       (__pyx_v_costs[0]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_17 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_18)) )));
 
-      /* "speech_dtw/_dtw.pyx":174
+      /* "speech_dtw/_dtw.pyx":152
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)             # <<<<<<<<<<<<<<
@@ -3747,7 +3726,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
       __pyx_t_20 = (__pyx_v_j + 1);
       (__pyx_v_costs[1]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_19 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_20)) )));
 
-      /* "speech_dtw/_dtw.pyx":175
+      /* "speech_dtw/_dtw.pyx":153
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)             # <<<<<<<<<<<<<<
@@ -3758,7 +3737,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
       __pyx_t_22 = __pyx_v_j;
       (__pyx_v_costs[2]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_21 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_22)) )));
 
-      /* "speech_dtw/_dtw.pyx":176
+      /* "speech_dtw/_dtw.pyx":154
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)
  *             cost_mat[i + 1, j + 1] = dist_func(s, t, i, j) + min3(costs)             # <<<<<<<<<<<<<<
@@ -3771,7 +3750,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
     }
   }
 
-  /* "speech_dtw/_dtw.pyx":178
+  /* "speech_dtw/_dtw.pyx":156
  *             cost_mat[i + 1, j + 1] = dist_func(s, t, i, j) + min3(costs)
  * 
  *     return cost_mat[N, M]             # <<<<<<<<<<<<<<
@@ -3781,13 +3760,13 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_25 = __pyx_v_N;
   __pyx_t_26 = __pyx_v_M;
-  __pyx_t_7 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_25 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_26)) )))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_7 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_25 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_26)) )))); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 156, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_r = __pyx_t_7;
   __pyx_t_7 = 0;
   goto __pyx_L0;
 
-  /* "speech_dtw/_dtw.pyx":141
+  /* "speech_dtw/_dtw.pyx":119
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def multivariate_dtw_cost(             # <<<<<<<<<<<<<<
@@ -3814,7 +3793,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_2multivariate_dtw_cost(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":184
+/* "speech_dtw/_dtw.pyx":162
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_cosine(             # <<<<<<<<<<<<<<
@@ -3837,7 +3816,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_5multivariate_dtw_cost_cosine(PyObj
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_s,&__pyx_n_s_t,&__pyx_n_s_dur_normalize,0};
     PyObject* values[3] = {0,0,0};
 
-    /* "speech_dtw/_dtw.pyx":185
+    /* "speech_dtw/_dtw.pyx":163
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_cosine(
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False             # <<<<<<<<<<<<<<
@@ -3867,7 +3846,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_5multivariate_dtw_cost_cosine(PyObj
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_cosine", 0, 2, 3, 1); __PYX_ERR(0, 184, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_cosine", 0, 2, 3, 1); __PYX_ERR(0, 162, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -3877,7 +3856,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_5multivariate_dtw_cost_cosine(PyObj
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw_cost_cosine") < 0)) __PYX_ERR(0, 184, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw_cost_cosine") < 0)) __PYX_ERR(0, 162, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -3889,22 +3868,22 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_5multivariate_dtw_cost_cosine(PyObj
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 185, __pyx_L3_error)
-    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 185, __pyx_L3_error)
+    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 163, __pyx_L3_error)
+    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 163, __pyx_L3_error)
     __pyx_v_dur_normalize = ((PyBoolObject *)values[2]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_cosine", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 184, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_cosine", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 162, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("speech_dtw._dtw.multivariate_dtw_cost_cosine", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dur_normalize), __pyx_ptype_7cpython_4bool_bool, 1, "dur_normalize", 0))) __PYX_ERR(0, 185, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dur_normalize), __pyx_ptype_7cpython_4bool_bool, 1, "dur_normalize", 0))) __PYX_ERR(0, 163, __pyx_L1_error)
   __pyx_r = __pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(__pyx_self, __pyx_v_s, __pyx_v_t, __pyx_v_dur_normalize);
 
-  /* "speech_dtw/_dtw.pyx":184
+  /* "speech_dtw/_dtw.pyx":162
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_cosine(             # <<<<<<<<<<<<<<
@@ -3959,7 +3938,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
   Py_ssize_t __pyx_t_27;
   __Pyx_RefNannySetupContext("multivariate_dtw_cost_cosine", 0);
 
-  /* "speech_dtw/_dtw.pyx":199
+  /* "speech_dtw/_dtw.pyx":177
  *     cdef double[3] costs
  * 
  *     N = s.shape[0]             # <<<<<<<<<<<<<<
@@ -3968,7 +3947,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
  */
   __pyx_v_N = (__pyx_v_s.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":200
+  /* "speech_dtw/_dtw.pyx":178
  * 
  *     N = s.shape[0]
  *     M = t.shape[0]             # <<<<<<<<<<<<<<
@@ -3977,23 +3956,23 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
  */
   __pyx_v_M = (__pyx_v_t.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":203
+  /* "speech_dtw/_dtw.pyx":181
  * 
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX             # <<<<<<<<<<<<<<
  *     cost_mat[0, 0] = 0.
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
@@ -4014,22 +3993,22 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_cost_mat = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "speech_dtw/_dtw.pyx":204
+  /* "speech_dtw/_dtw.pyx":182
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX
  *     cost_mat[0, 0] = 0.             # <<<<<<<<<<<<<<
@@ -4040,7 +4019,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
   __pyx_t_8 = 0;
   *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_7 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_8)) )) = 0.;
 
-  /* "speech_dtw/_dtw.pyx":207
+  /* "speech_dtw/_dtw.pyx":185
  * 
  *     # Fill the cost matrix
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -4052,7 +4031,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "speech_dtw/_dtw.pyx":208
+    /* "speech_dtw/_dtw.pyx":186
  *     # Fill the cost matrix
  *     for i in range(N):
  *         for j in range(M):             # <<<<<<<<<<<<<<
@@ -4064,7 +4043,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
     for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
       __pyx_v_j = __pyx_t_14;
 
-      /* "speech_dtw/_dtw.pyx":209
+      /* "speech_dtw/_dtw.pyx":187
  *     for i in range(N):
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)             # <<<<<<<<<<<<<<
@@ -4075,7 +4054,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
       __pyx_t_16 = __pyx_v_j;
       (__pyx_v_costs[0]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_15 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_16)) )));
 
-      /* "speech_dtw/_dtw.pyx":210
+      /* "speech_dtw/_dtw.pyx":188
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)             # <<<<<<<<<<<<<<
@@ -4086,53 +4065,41 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
       __pyx_t_18 = (__pyx_v_j + 1);
       (__pyx_v_costs[1]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_17 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_18)) )));
 
-      /* "speech_dtw/_dtw.pyx":211
+      /* "speech_dtw/_dtw.pyx":189
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)             # <<<<<<<<<<<<<<
  *             cost_mat[i + 1, j + 1] = cosine_dist(s, t, i, j) + min3(costs)
- *             print(cost_mat)
+ * 
  */
       __pyx_t_19 = (__pyx_v_i + 1);
       __pyx_t_20 = __pyx_v_j;
       (__pyx_v_costs[2]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_19 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_20)) )));
 
-      /* "speech_dtw/_dtw.pyx":212
+      /* "speech_dtw/_dtw.pyx":190
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)
  *             cost_mat[i + 1, j + 1] = cosine_dist(s, t, i, j) + min3(costs)             # <<<<<<<<<<<<<<
- *             print(cost_mat)
  * 
+ *     if dur_normalize:
  */
       __pyx_t_21 = (__pyx_v_i + 1);
       __pyx_t_22 = (__pyx_v_j + 1);
       *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_21 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_22)) )) = (__pyx_f_10speech_dtw_4_dtw_cosine_dist(__pyx_v_s, __pyx_v_t, __pyx_v_i, __pyx_v_j) + __pyx_f_10speech_dtw_4_dtw_min3(__pyx_v_costs));
-
-      /* "speech_dtw/_dtw.pyx":213
- *             costs[2] = cost_mat[i + 1, j]   # deletion (2)
- *             cost_mat[i + 1, j + 1] = cosine_dist(s, t, i, j) + min3(costs)
- *             print(cost_mat)             # <<<<<<<<<<<<<<
- * 
- *     if dur_normalize:
- */
-      __pyx_t_5 = __pyx_memoryview_fromslice(__pyx_v_cost_mat, 2, (PyObject *(*)(char *)) __pyx_memview_get_double, (int (*)(char *, PyObject *)) __pyx_memview_set_double, 0);; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 213, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      if (__Pyx_PrintOne(0, __pyx_t_5) < 0) __PYX_ERR(0, 213, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
   }
 
-  /* "speech_dtw/_dtw.pyx":215
- *             print(cost_mat)
+  /* "speech_dtw/_dtw.pyx":192
+ *             cost_mat[i + 1, j + 1] = cosine_dist(s, t, i, j) + min3(costs)
  * 
  *     if dur_normalize:             # <<<<<<<<<<<<<<
  *         return cost_mat[N, M]/(N + M)
  *     else:
  */
-  __pyx_t_23 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_dur_normalize)); if (unlikely(__pyx_t_23 < 0)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_23 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_dur_normalize)); if (unlikely(__pyx_t_23 < 0)) __PYX_ERR(0, 192, __pyx_L1_error)
   if (__pyx_t_23) {
 
-    /* "speech_dtw/_dtw.pyx":216
+    /* "speech_dtw/_dtw.pyx":193
  * 
  *     if dur_normalize:
  *         return cost_mat[N, M]/(N + M)             # <<<<<<<<<<<<<<
@@ -4142,14 +4109,14 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_24 = __pyx_v_N;
     __pyx_t_25 = __pyx_v_M;
-    __pyx_t_5 = PyFloat_FromDouble(((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_24 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_25)) ))) / (__pyx_v_N + __pyx_v_M))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 216, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_24 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_25)) ))) / (__pyx_v_N + __pyx_v_M))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 193, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "speech_dtw/_dtw.pyx":215
- *             print(cost_mat)
+    /* "speech_dtw/_dtw.pyx":192
+ *             cost_mat[i + 1, j + 1] = cosine_dist(s, t, i, j) + min3(costs)
  * 
  *     if dur_normalize:             # <<<<<<<<<<<<<<
  *         return cost_mat[N, M]/(N + M)
@@ -4157,7 +4124,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
  */
   }
 
-  /* "speech_dtw/_dtw.pyx":218
+  /* "speech_dtw/_dtw.pyx":195
  *         return cost_mat[N, M]/(N + M)
  *     else:
  *         return cost_mat[N, M]             # <<<<<<<<<<<<<<
@@ -4168,14 +4135,14 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_26 = __pyx_v_N;
     __pyx_t_27 = __pyx_v_M;
-    __pyx_t_5 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_26 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_27)) )))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_26 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_27)) )))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 195, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
   }
 
-  /* "speech_dtw/_dtw.pyx":184
+  /* "speech_dtw/_dtw.pyx":162
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_cosine(             # <<<<<<<<<<<<<<
@@ -4202,7 +4169,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_4multivariate_dtw_cost_cosine(CYTHO
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":224
+/* "speech_dtw/_dtw.pyx":201
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean(             # <<<<<<<<<<<<<<
@@ -4225,7 +4192,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_7multivariate_dtw_cost_euclidean(Py
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_s,&__pyx_n_s_t,&__pyx_n_s_dur_normalize,0};
     PyObject* values[3] = {0,0,0};
 
-    /* "speech_dtw/_dtw.pyx":225
+    /* "speech_dtw/_dtw.pyx":202
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean(
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False             # <<<<<<<<<<<<<<
@@ -4255,7 +4222,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_7multivariate_dtw_cost_euclidean(Py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_euclidean", 0, 2, 3, 1); __PYX_ERR(0, 224, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_euclidean", 0, 2, 3, 1); __PYX_ERR(0, 201, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -4265,7 +4232,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_7multivariate_dtw_cost_euclidean(Py
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw_cost_euclidean") < 0)) __PYX_ERR(0, 224, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw_cost_euclidean") < 0)) __PYX_ERR(0, 201, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4277,22 +4244,22 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_7multivariate_dtw_cost_euclidean(Py
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 225, __pyx_L3_error)
-    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 225, __pyx_L3_error)
+    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 202, __pyx_L3_error)
+    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 202, __pyx_L3_error)
     __pyx_v_dur_normalize = ((PyBoolObject *)values[2]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_euclidean", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 224, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_euclidean", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 201, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("speech_dtw._dtw.multivariate_dtw_cost_euclidean", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dur_normalize), __pyx_ptype_7cpython_4bool_bool, 1, "dur_normalize", 0))) __PYX_ERR(0, 225, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dur_normalize), __pyx_ptype_7cpython_4bool_bool, 1, "dur_normalize", 0))) __PYX_ERR(0, 202, __pyx_L1_error)
   __pyx_r = __pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(__pyx_self, __pyx_v_s, __pyx_v_t, __pyx_v_dur_normalize);
 
-  /* "speech_dtw/_dtw.pyx":224
+  /* "speech_dtw/_dtw.pyx":201
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean(             # <<<<<<<<<<<<<<
@@ -4347,7 +4314,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
   Py_ssize_t __pyx_t_27;
   __Pyx_RefNannySetupContext("multivariate_dtw_cost_euclidean", 0);
 
-  /* "speech_dtw/_dtw.pyx":240
+  /* "speech_dtw/_dtw.pyx":217
  *     cdef double[3] costs
  * 
  *     N = s.shape[0]             # <<<<<<<<<<<<<<
@@ -4356,7 +4323,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
  */
   __pyx_v_N = (__pyx_v_s.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":241
+  /* "speech_dtw/_dtw.pyx":218
  * 
  *     N = s.shape[0]
  *     M = t.shape[0]             # <<<<<<<<<<<<<<
@@ -4365,23 +4332,23 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
  */
   __pyx_v_M = (__pyx_v_t.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":244
+  /* "speech_dtw/_dtw.pyx":221
  * 
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX             # <<<<<<<<<<<<<<
  *     cost_mat[0, 0] = 0.
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
@@ -4402,22 +4369,22 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 221, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_cost_mat = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "speech_dtw/_dtw.pyx":245
+  /* "speech_dtw/_dtw.pyx":222
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX
  *     cost_mat[0, 0] = 0.             # <<<<<<<<<<<<<<
@@ -4428,7 +4395,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
   __pyx_t_8 = 0;
   *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_7 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_8)) )) = 0.;
 
-  /* "speech_dtw/_dtw.pyx":248
+  /* "speech_dtw/_dtw.pyx":225
  * 
  *     # Fill the cost matrix
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -4440,7 +4407,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "speech_dtw/_dtw.pyx":249
+    /* "speech_dtw/_dtw.pyx":226
  *     # Fill the cost matrix
  *     for i in range(N):
  *         for j in range(M):             # <<<<<<<<<<<<<<
@@ -4452,7 +4419,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
     for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
       __pyx_v_j = __pyx_t_14;
 
-      /* "speech_dtw/_dtw.pyx":250
+      /* "speech_dtw/_dtw.pyx":227
  *     for i in range(N):
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)             # <<<<<<<<<<<<<<
@@ -4463,7 +4430,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
       __pyx_t_16 = __pyx_v_j;
       (__pyx_v_costs[0]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_15 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_16)) )));
 
-      /* "speech_dtw/_dtw.pyx":251
+      /* "speech_dtw/_dtw.pyx":228
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)             # <<<<<<<<<<<<<<
@@ -4474,7 +4441,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
       __pyx_t_18 = (__pyx_v_j + 1);
       (__pyx_v_costs[1]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_17 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_18)) )));
 
-      /* "speech_dtw/_dtw.pyx":252
+      /* "speech_dtw/_dtw.pyx":229
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)             # <<<<<<<<<<<<<<
@@ -4485,7 +4452,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
       __pyx_t_20 = __pyx_v_j;
       (__pyx_v_costs[2]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_19 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_20)) )));
 
-      /* "speech_dtw/_dtw.pyx":253
+      /* "speech_dtw/_dtw.pyx":230
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)
  *             cost_mat[i + 1, j + 1] = euclidean_dist(s, t, i, j) + min3(costs)             # <<<<<<<<<<<<<<
@@ -4498,17 +4465,17 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
     }
   }
 
-  /* "speech_dtw/_dtw.pyx":255
+  /* "speech_dtw/_dtw.pyx":232
  *             cost_mat[i + 1, j + 1] = euclidean_dist(s, t, i, j) + min3(costs)
  * 
  *     if dur_normalize:             # <<<<<<<<<<<<<<
  *         return cost_mat[N, M]/(N + M)
  *     else:
  */
-  __pyx_t_23 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_dur_normalize)); if (unlikely(__pyx_t_23 < 0)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_23 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_dur_normalize)); if (unlikely(__pyx_t_23 < 0)) __PYX_ERR(0, 232, __pyx_L1_error)
   if (__pyx_t_23) {
 
-    /* "speech_dtw/_dtw.pyx":256
+    /* "speech_dtw/_dtw.pyx":233
  * 
  *     if dur_normalize:
  *         return cost_mat[N, M]/(N + M)             # <<<<<<<<<<<<<<
@@ -4518,13 +4485,13 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_24 = __pyx_v_N;
     __pyx_t_25 = __pyx_v_M;
-    __pyx_t_5 = PyFloat_FromDouble(((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_24 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_25)) ))) / (__pyx_v_N + __pyx_v_M))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_24 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_25)) ))) / (__pyx_v_N + __pyx_v_M))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 233, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "speech_dtw/_dtw.pyx":255
+    /* "speech_dtw/_dtw.pyx":232
  *             cost_mat[i + 1, j + 1] = euclidean_dist(s, t, i, j) + min3(costs)
  * 
  *     if dur_normalize:             # <<<<<<<<<<<<<<
@@ -4533,7 +4500,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
  */
   }
 
-  /* "speech_dtw/_dtw.pyx":258
+  /* "speech_dtw/_dtw.pyx":235
  *         return cost_mat[N, M]/(N + M)
  *     else:
  *         return cost_mat[N, M]             # <<<<<<<<<<<<<<
@@ -4544,14 +4511,14 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_26 = __pyx_v_N;
     __pyx_t_27 = __pyx_v_M;
-    __pyx_t_5 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_26 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_27)) )))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 258, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_26 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_27)) )))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 235, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
   }
 
-  /* "speech_dtw/_dtw.pyx":224
+  /* "speech_dtw/_dtw.pyx":201
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean(             # <<<<<<<<<<<<<<
@@ -4578,7 +4545,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_6multivariate_dtw_cost_euclidean(CY
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":264
+/* "speech_dtw/_dtw.pyx":241
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean_squared(             # <<<<<<<<<<<<<<
@@ -4601,7 +4568,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_9multivariate_dtw_cost_euclidean_sq
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_s,&__pyx_n_s_t,&__pyx_n_s_dur_normalize,0};
     PyObject* values[3] = {0,0,0};
 
-    /* "speech_dtw/_dtw.pyx":265
+    /* "speech_dtw/_dtw.pyx":242
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean_squared(
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False             # <<<<<<<<<<<<<<
@@ -4631,7 +4598,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_9multivariate_dtw_cost_euclidean_sq
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_euclidean_squared", 0, 2, 3, 1); __PYX_ERR(0, 264, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_euclidean_squared", 0, 2, 3, 1); __PYX_ERR(0, 241, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -4641,7 +4608,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_9multivariate_dtw_cost_euclidean_sq
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw_cost_euclidean_squared") < 0)) __PYX_ERR(0, 264, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw_cost_euclidean_squared") < 0)) __PYX_ERR(0, 241, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4653,22 +4620,22 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_9multivariate_dtw_cost_euclidean_sq
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 265, __pyx_L3_error)
-    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 265, __pyx_L3_error)
+    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 242, __pyx_L3_error)
+    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 242, __pyx_L3_error)
     __pyx_v_dur_normalize = ((PyBoolObject *)values[2]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_euclidean_squared", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 264, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("multivariate_dtw_cost_euclidean_squared", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 241, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("speech_dtw._dtw.multivariate_dtw_cost_euclidean_squared", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dur_normalize), __pyx_ptype_7cpython_4bool_bool, 1, "dur_normalize", 0))) __PYX_ERR(0, 265, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_dur_normalize), __pyx_ptype_7cpython_4bool_bool, 1, "dur_normalize", 0))) __PYX_ERR(0, 242, __pyx_L1_error)
   __pyx_r = __pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_squared(__pyx_self, __pyx_v_s, __pyx_v_t, __pyx_v_dur_normalize);
 
-  /* "speech_dtw/_dtw.pyx":264
+  /* "speech_dtw/_dtw.pyx":241
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean_squared(             # <<<<<<<<<<<<<<
@@ -4723,7 +4690,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
   Py_ssize_t __pyx_t_27;
   __Pyx_RefNannySetupContext("multivariate_dtw_cost_euclidean_squared", 0);
 
-  /* "speech_dtw/_dtw.pyx":280
+  /* "speech_dtw/_dtw.pyx":257
  *     cdef double[3] costs
  * 
  *     N = s.shape[0]             # <<<<<<<<<<<<<<
@@ -4732,7 +4699,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
  */
   __pyx_v_N = (__pyx_v_s.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":281
+  /* "speech_dtw/_dtw.pyx":258
  * 
  *     N = s.shape[0]
  *     M = t.shape[0]             # <<<<<<<<<<<<<<
@@ -4741,23 +4708,23 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
  */
   __pyx_v_M = (__pyx_v_t.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":284
+  /* "speech_dtw/_dtw.pyx":261
  * 
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX             # <<<<<<<<<<<<<<
  *     cost_mat[0, 0] = 0.
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2);
@@ -4778,22 +4745,22 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 284, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_3 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_5, PyBUF_WRITABLE); if (unlikely(!__pyx_t_6.memview)) __PYX_ERR(0, 261, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_cost_mat = __pyx_t_6;
   __pyx_t_6.memview = NULL;
   __pyx_t_6.data = NULL;
 
-  /* "speech_dtw/_dtw.pyx":285
+  /* "speech_dtw/_dtw.pyx":262
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX
  *     cost_mat[0, 0] = 0.             # <<<<<<<<<<<<<<
@@ -4804,7 +4771,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
   __pyx_t_8 = 0;
   *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_7 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_8)) )) = 0.;
 
-  /* "speech_dtw/_dtw.pyx":288
+  /* "speech_dtw/_dtw.pyx":265
  * 
  *     # Fill the cost matrix
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -4816,7 +4783,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
   for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
     __pyx_v_i = __pyx_t_11;
 
-    /* "speech_dtw/_dtw.pyx":289
+    /* "speech_dtw/_dtw.pyx":266
  *     # Fill the cost matrix
  *     for i in range(N):
  *         for j in range(M):             # <<<<<<<<<<<<<<
@@ -4828,7 +4795,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
     for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
       __pyx_v_j = __pyx_t_14;
 
-      /* "speech_dtw/_dtw.pyx":290
+      /* "speech_dtw/_dtw.pyx":267
  *     for i in range(N):
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)             # <<<<<<<<<<<<<<
@@ -4839,7 +4806,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
       __pyx_t_16 = __pyx_v_j;
       (__pyx_v_costs[0]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_15 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_16)) )));
 
-      /* "speech_dtw/_dtw.pyx":291
+      /* "speech_dtw/_dtw.pyx":268
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)             # <<<<<<<<<<<<<<
@@ -4850,7 +4817,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
       __pyx_t_18 = (__pyx_v_j + 1);
       (__pyx_v_costs[1]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_17 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_18)) )));
 
-      /* "speech_dtw/_dtw.pyx":292
+      /* "speech_dtw/_dtw.pyx":269
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)             # <<<<<<<<<<<<<<
@@ -4861,7 +4828,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
       __pyx_t_20 = __pyx_v_j;
       (__pyx_v_costs[2]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_19 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_20)) )));
 
-      /* "speech_dtw/_dtw.pyx":293
+      /* "speech_dtw/_dtw.pyx":270
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)
  *             cost_mat[i + 1, j + 1] = euclidean_squared_dist(s, t, i, j) + min3(costs)             # <<<<<<<<<<<<<<
@@ -4874,17 +4841,17 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
     }
   }
 
-  /* "speech_dtw/_dtw.pyx":295
+  /* "speech_dtw/_dtw.pyx":272
  *             cost_mat[i + 1, j + 1] = euclidean_squared_dist(s, t, i, j) + min3(costs)
  * 
  *     if dur_normalize:             # <<<<<<<<<<<<<<
  *         return cost_mat[N, M]/(N + M)
  *     else:
  */
-  __pyx_t_23 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_dur_normalize)); if (unlikely(__pyx_t_23 < 0)) __PYX_ERR(0, 295, __pyx_L1_error)
+  __pyx_t_23 = __Pyx_PyObject_IsTrue(((PyObject *)__pyx_v_dur_normalize)); if (unlikely(__pyx_t_23 < 0)) __PYX_ERR(0, 272, __pyx_L1_error)
   if (__pyx_t_23) {
 
-    /* "speech_dtw/_dtw.pyx":296
+    /* "speech_dtw/_dtw.pyx":273
  * 
  *     if dur_normalize:
  *         return cost_mat[N, M]/(N + M)             # <<<<<<<<<<<<<<
@@ -4894,13 +4861,13 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_24 = __pyx_v_N;
     __pyx_t_25 = __pyx_v_M;
-    __pyx_t_5 = PyFloat_FromDouble(((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_24 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_25)) ))) / (__pyx_v_N + __pyx_v_M))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 296, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble(((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_24 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_25)) ))) / (__pyx_v_N + __pyx_v_M))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 273, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "speech_dtw/_dtw.pyx":295
+    /* "speech_dtw/_dtw.pyx":272
  *             cost_mat[i + 1, j + 1] = euclidean_squared_dist(s, t, i, j) + min3(costs)
  * 
  *     if dur_normalize:             # <<<<<<<<<<<<<<
@@ -4909,7 +4876,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
  */
   }
 
-  /* "speech_dtw/_dtw.pyx":298
+  /* "speech_dtw/_dtw.pyx":275
  *         return cost_mat[N, M]/(N + M)
  *     else:
  *         return cost_mat[N, M]             # <<<<<<<<<<<<<<
@@ -4920,14 +4887,14 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_26 = __pyx_v_N;
     __pyx_t_27 = __pyx_v_M;
-    __pyx_t_5 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_26 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_27)) )))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __pyx_t_5 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_26 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_27)) )))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 275, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
   }
 
-  /* "speech_dtw/_dtw.pyx":264
+  /* "speech_dtw/_dtw.pyx":241
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean_squared(             # <<<<<<<<<<<<<<
@@ -4954,7 +4921,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_8multivariate_dtw_cost_euclidean_sq
   return __pyx_r;
 }
 
-/* "speech_dtw/_dtw.pyx":303
+/* "speech_dtw/_dtw.pyx":280
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def multivariate_dtw(double[:, ::1] s, double[:, ::1] t, str metric="cosine"):             # <<<<<<<<<<<<<<
@@ -4999,7 +4966,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_11multivariate_dtw(PyObject *__pyx_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("multivariate_dtw", 0, 2, 3, 1); __PYX_ERR(0, 303, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("multivariate_dtw", 0, 2, 3, 1); __PYX_ERR(0, 280, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -5009,7 +4976,7 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_11multivariate_dtw(PyObject *__pyx_
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw") < 0)) __PYX_ERR(0, 303, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "multivariate_dtw") < 0)) __PYX_ERR(0, 280, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -5021,19 +4988,19 @@ static PyObject *__pyx_pw_10speech_dtw_4_dtw_11multivariate_dtw(PyObject *__pyx_
         default: goto __pyx_L5_argtuple_error;
       }
     }
-    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 303, __pyx_L3_error)
-    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 303, __pyx_L3_error)
+    __pyx_v_s = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[0], PyBUF_WRITABLE); if (unlikely(!__pyx_v_s.memview)) __PYX_ERR(0, 280, __pyx_L3_error)
+    __pyx_v_t = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(values[1], PyBUF_WRITABLE); if (unlikely(!__pyx_v_t.memview)) __PYX_ERR(0, 280, __pyx_L3_error)
     __pyx_v_metric = ((PyObject*)values[2]);
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("multivariate_dtw", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 303, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("multivariate_dtw", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 280, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("speech_dtw._dtw.multivariate_dtw", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_metric), (&PyString_Type), 1, "metric", 1))) __PYX_ERR(0, 303, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_metric), (&PyString_Type), 1, "metric", 1))) __PYX_ERR(0, 280, __pyx_L1_error)
   __pyx_r = __pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(__pyx_self, __pyx_v_s, __pyx_v_t, __pyx_v_metric);
 
   /* function exit code */
@@ -5088,18 +5055,18 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   Py_ssize_t __pyx_t_27;
   __Pyx_RefNannySetupContext("multivariate_dtw", 0);
 
-  /* "speech_dtw/_dtw.pyx":316
+  /* "speech_dtw/_dtw.pyx":293
  * 
  *     cdef metric_ptr dist_func
  *     if metric == "cosine":             # <<<<<<<<<<<<<<
  *         dist_func = &cosine_dist
  *     elif metric == "euclidean":
  */
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_metric, __pyx_n_s_cosine, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_metric, __pyx_n_s_cosine, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 293, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "speech_dtw/_dtw.pyx":317
+    /* "speech_dtw/_dtw.pyx":294
  *     cdef metric_ptr dist_func
  *     if metric == "cosine":
  *         dist_func = &cosine_dist             # <<<<<<<<<<<<<<
@@ -5108,7 +5075,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
     __pyx_v_dist_func = (&__pyx_f_10speech_dtw_4_dtw_cosine_dist);
 
-    /* "speech_dtw/_dtw.pyx":316
+    /* "speech_dtw/_dtw.pyx":293
  * 
  *     cdef metric_ptr dist_func
  *     if metric == "cosine":             # <<<<<<<<<<<<<<
@@ -5118,18 +5085,18 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
     goto __pyx_L3;
   }
 
-  /* "speech_dtw/_dtw.pyx":318
+  /* "speech_dtw/_dtw.pyx":295
  *     if metric == "cosine":
  *         dist_func = &cosine_dist
  *     elif metric == "euclidean":             # <<<<<<<<<<<<<<
  *         dist_func = &euclidean_dist
  *     else:
  */
-  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_v_metric, __pyx_n_s_euclidean, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyString_Equals(__pyx_v_metric, __pyx_n_s_euclidean, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 295, __pyx_L1_error)
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (likely(__pyx_t_1)) {
 
-    /* "speech_dtw/_dtw.pyx":319
+    /* "speech_dtw/_dtw.pyx":296
  *         dist_func = &cosine_dist
  *     elif metric == "euclidean":
  *         dist_func = &euclidean_dist             # <<<<<<<<<<<<<<
@@ -5138,7 +5105,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
     __pyx_v_dist_func = (&__pyx_f_10speech_dtw_4_dtw_euclidean_dist);
 
-    /* "speech_dtw/_dtw.pyx":318
+    /* "speech_dtw/_dtw.pyx":295
  *     if metric == "cosine":
  *         dist_func = &cosine_dist
  *     elif metric == "euclidean":             # <<<<<<<<<<<<<<
@@ -5148,7 +5115,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
     goto __pyx_L3;
   }
 
-  /* "speech_dtw/_dtw.pyx":321
+  /* "speech_dtw/_dtw.pyx":298
  *         dist_func = &euclidean_dist
  *     else:
  *         raise ValueError("Unrecognized metric.")             # <<<<<<<<<<<<<<
@@ -5156,15 +5123,15 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  *     N = s.shape[0]
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 321, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 298, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(0, 321, __pyx_L1_error)
+    __PYX_ERR(0, 298, __pyx_L1_error)
   }
   __pyx_L3:;
 
-  /* "speech_dtw/_dtw.pyx":323
+  /* "speech_dtw/_dtw.pyx":300
  *         raise ValueError("Unrecognized metric.")
  * 
  *     N = s.shape[0]             # <<<<<<<<<<<<<<
@@ -5173,7 +5140,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
   __pyx_v_N = (__pyx_v_s.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":324
+  /* "speech_dtw/_dtw.pyx":301
  * 
  *     N = s.shape[0]
  *     M = t.shape[0]             # <<<<<<<<<<<<<<
@@ -5182,23 +5149,23 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
   __pyx_v_M = (__pyx_v_t.shape[0]);
 
-  /* "speech_dtw/_dtw.pyx":327
+  /* "speech_dtw/_dtw.pyx":304
  * 
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX             # <<<<<<<<<<<<<<
  *     cost_mat[0, 0] = 0.
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_long((__pyx_v_N + 1)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_From_long((__pyx_v_M + 1)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4);
@@ -5219,22 +5186,22 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   __pyx_t_3 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble(DBL_MAX); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_7 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Add(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 327, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_double(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 304, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_cost_mat = __pyx_t_8;
   __pyx_t_8.memview = NULL;
   __pyx_t_8.data = NULL;
 
-  /* "speech_dtw/_dtw.pyx":328
+  /* "speech_dtw/_dtw.pyx":305
  *     # Initialize the cost matrix
  *     cost_mat = np.zeros((N + 1, M + 1)) + DBL_MAX
  *     cost_mat[0, 0] = 0.             # <<<<<<<<<<<<<<
@@ -5245,23 +5212,23 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   __pyx_t_10 = 0;
   *((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_9 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_10)) )) = 0.;
 
-  /* "speech_dtw/_dtw.pyx":331
+  /* "speech_dtw/_dtw.pyx":308
  * 
  *     # Fill the cost matrix
  *     traceback_mat = np.zeros((N, M), dtype=np.uint16)             # <<<<<<<<<<<<<<
  *     for i in range(N):
  *         for j in range(M):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_N); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_N); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_M); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_M); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_7);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_7);
@@ -5269,21 +5236,21 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_3);
   __pyx_t_7 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6);
   __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_uint16); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_uint16); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 331, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 331, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 308, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5291,7 +5258,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   __pyx_v_traceback_mat = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "speech_dtw/_dtw.pyx":332
+  /* "speech_dtw/_dtw.pyx":309
  *     # Fill the cost matrix
  *     traceback_mat = np.zeros((N, M), dtype=np.uint16)
  *     for i in range(N):             # <<<<<<<<<<<<<<
@@ -5303,7 +5270,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_12; __pyx_t_13+=1) {
     __pyx_v_i = __pyx_t_13;
 
-    /* "speech_dtw/_dtw.pyx":333
+    /* "speech_dtw/_dtw.pyx":310
  *     traceback_mat = np.zeros((N, M), dtype=np.uint16)
  *     for i in range(N):
  *         for j in range(M):             # <<<<<<<<<<<<<<
@@ -5315,7 +5282,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
     for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
       __pyx_v_j = __pyx_t_16;
 
-      /* "speech_dtw/_dtw.pyx":334
+      /* "speech_dtw/_dtw.pyx":311
  *     for i in range(N):
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)             # <<<<<<<<<<<<<<
@@ -5326,7 +5293,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
       __pyx_t_18 = __pyx_v_j;
       (__pyx_v_costs[0]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_17 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_18)) )));
 
-      /* "speech_dtw/_dtw.pyx":335
+      /* "speech_dtw/_dtw.pyx":312
  *         for j in range(M):
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)             # <<<<<<<<<<<<<<
@@ -5337,7 +5304,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
       __pyx_t_20 = (__pyx_v_j + 1);
       (__pyx_v_costs[1]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_19 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_20)) )));
 
-      /* "speech_dtw/_dtw.pyx":336
+      /* "speech_dtw/_dtw.pyx":313
  *             costs[0] = cost_mat[i, j]       # match (0)
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)             # <<<<<<<<<<<<<<
@@ -5348,7 +5315,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
       __pyx_t_22 = __pyx_v_j;
       (__pyx_v_costs[2]) = (*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_21 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_22)) )));
 
-      /* "speech_dtw/_dtw.pyx":337
+      /* "speech_dtw/_dtw.pyx":314
  *             costs[1] = cost_mat[i, j + 1]   # insertion (1)
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)
  *             i_penalty = i_min3(costs)             # <<<<<<<<<<<<<<
@@ -5357,20 +5324,20 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
       __pyx_v_i_penalty = __pyx_f_10speech_dtw_4_dtw_i_min3(__pyx_v_costs);
 
-      /* "speech_dtw/_dtw.pyx":338
+      /* "speech_dtw/_dtw.pyx":315
  *             costs[2] = cost_mat[i + 1, j]   # deletion (2)
  *             i_penalty = i_min3(costs)
  *             traceback_mat[i, j] = i_penalty             # <<<<<<<<<<<<<<
  *             cost_mat[i + 1, j + 1] = dist_func(s, t, i, j) + costs[i_penalty]
  * 
  */
-      __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_i_penalty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 338, __pyx_L1_error)
+      __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_i_penalty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 315, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_6 = PyInt_FromSsize_t(__pyx_v_i); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 338, __pyx_L1_error)
+      __pyx_t_6 = PyInt_FromSsize_t(__pyx_v_i); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 315, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_j); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 338, __pyx_L1_error)
+      __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_j); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 315, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 338, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 315, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GIVEREF(__pyx_t_6);
       PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6);
@@ -5378,11 +5345,11 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
       PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_3);
       __pyx_t_6 = 0;
       __pyx_t_3 = 0;
-      if (unlikely(PyObject_SetItem(__pyx_v_traceback_mat, __pyx_t_5, __pyx_t_4) < 0)) __PYX_ERR(0, 338, __pyx_L1_error)
+      if (unlikely(PyObject_SetItem(__pyx_v_traceback_mat, __pyx_t_5, __pyx_t_4) < 0)) __PYX_ERR(0, 315, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "speech_dtw/_dtw.pyx":339
+      /* "speech_dtw/_dtw.pyx":316
  *             i_penalty = i_min3(costs)
  *             traceback_mat[i, j] = i_penalty
  *             cost_mat[i + 1, j + 1] = dist_func(s, t, i, j) + costs[i_penalty]             # <<<<<<<<<<<<<<
@@ -5395,7 +5362,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
     }
   }
 
-  /* "speech_dtw/_dtw.pyx":342
+  /* "speech_dtw/_dtw.pyx":319
  * 
  *     # Trace back from bottom right
  *     i = N - 1             # <<<<<<<<<<<<<<
@@ -5404,7 +5371,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
   __pyx_v_i = (__pyx_v_N - 1);
 
-  /* "speech_dtw/_dtw.pyx":343
+  /* "speech_dtw/_dtw.pyx":320
  *     # Trace back from bottom right
  *     i = N - 1
  *     j = M - 1             # <<<<<<<<<<<<<<
@@ -5413,18 +5380,18 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
   __pyx_v_j = (__pyx_v_M - 1);
 
-  /* "speech_dtw/_dtw.pyx":344
+  /* "speech_dtw/_dtw.pyx":321
  *     i = N - 1
  *     j = M - 1
  *     cdef list path = [(i, j)]             # <<<<<<<<<<<<<<
  *     while i > 0 or j > 0:
  *         tb_type = traceback_mat[i, j]
  */
-  __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_i); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_i); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyInt_FromSsize_t(__pyx_v_j); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_5 = PyInt_FromSsize_t(__pyx_v_j); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
@@ -5432,7 +5399,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 321, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_3);
   PyList_SET_ITEM(__pyx_t_5, 0, __pyx_t_3);
@@ -5440,7 +5407,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   __pyx_v_path = ((PyObject*)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "speech_dtw/_dtw.pyx":345
+  /* "speech_dtw/_dtw.pyx":322
  *     j = M - 1
  *     cdef list path = [(i, j)]
  *     while i > 0 or j > 0:             # <<<<<<<<<<<<<<
@@ -5459,18 +5426,18 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
     __pyx_L10_bool_binop_done:;
     if (!__pyx_t_1) break;
 
-    /* "speech_dtw/_dtw.pyx":346
+    /* "speech_dtw/_dtw.pyx":323
  *     cdef list path = [(i, j)]
  *     while i > 0 or j > 0:
  *         tb_type = traceback_mat[i, j]             # <<<<<<<<<<<<<<
  *         if tb_type == 0:
  *             # Match
  */
-    __pyx_t_5 = PyInt_FromSsize_t(__pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 346, __pyx_L1_error)
+    __pyx_t_5 = PyInt_FromSsize_t(__pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_j); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+    __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_j); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 346, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_5);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
@@ -5478,26 +5445,26 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
     PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
     __pyx_t_5 = 0;
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_traceback_mat, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 346, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetItem(__pyx_v_traceback_mat, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_XDECREF_SET(__pyx_v_tb_type, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "speech_dtw/_dtw.pyx":347
+    /* "speech_dtw/_dtw.pyx":324
  *     while i > 0 or j > 0:
  *         tb_type = traceback_mat[i, j]
  *         if tb_type == 0:             # <<<<<<<<<<<<<<
  *             # Match
  *             i = i - 1
  */
-    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_tb_type, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_tb_type, __pyx_int_0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 347, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 324, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "speech_dtw/_dtw.pyx":349
+      /* "speech_dtw/_dtw.pyx":326
  *         if tb_type == 0:
  *             # Match
  *             i = i - 1             # <<<<<<<<<<<<<<
@@ -5506,7 +5473,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
       __pyx_v_i = (__pyx_v_i - 1);
 
-      /* "speech_dtw/_dtw.pyx":350
+      /* "speech_dtw/_dtw.pyx":327
  *             # Match
  *             i = i - 1
  *             j = j - 1             # <<<<<<<<<<<<<<
@@ -5515,7 +5482,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
       __pyx_v_j = (__pyx_v_j - 1);
 
-      /* "speech_dtw/_dtw.pyx":347
+      /* "speech_dtw/_dtw.pyx":324
  *     while i > 0 or j > 0:
  *         tb_type = traceback_mat[i, j]
  *         if tb_type == 0:             # <<<<<<<<<<<<<<
@@ -5525,20 +5492,20 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
       goto __pyx_L12;
     }
 
-    /* "speech_dtw/_dtw.pyx":351
+    /* "speech_dtw/_dtw.pyx":328
  *             i = i - 1
  *             j = j - 1
  *         elif tb_type == 1:             # <<<<<<<<<<<<<<
  *             # Insertion
  *             i = i - 1
  */
-    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_tb_type, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 351, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_tb_type, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 351, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 328, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "speech_dtw/_dtw.pyx":353
+      /* "speech_dtw/_dtw.pyx":330
  *         elif tb_type == 1:
  *             # Insertion
  *             i = i - 1             # <<<<<<<<<<<<<<
@@ -5547,7 +5514,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
       __pyx_v_i = (__pyx_v_i - 1);
 
-      /* "speech_dtw/_dtw.pyx":351
+      /* "speech_dtw/_dtw.pyx":328
  *             i = i - 1
  *             j = j - 1
  *         elif tb_type == 1:             # <<<<<<<<<<<<<<
@@ -5557,20 +5524,20 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
       goto __pyx_L12;
     }
 
-    /* "speech_dtw/_dtw.pyx":354
+    /* "speech_dtw/_dtw.pyx":331
  *             # Insertion
  *             i = i - 1
  *         elif tb_type == 2:             # <<<<<<<<<<<<<<
  *             # Deletion
  *             j = j - 1
  */
-    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_tb_type, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_EqObjC(__pyx_v_tb_type, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 331, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 354, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 331, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "speech_dtw/_dtw.pyx":356
+      /* "speech_dtw/_dtw.pyx":333
  *         elif tb_type == 2:
  *             # Deletion
  *             j = j - 1             # <<<<<<<<<<<<<<
@@ -5579,7 +5546,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
  */
       __pyx_v_j = (__pyx_v_j - 1);
 
-      /* "speech_dtw/_dtw.pyx":354
+      /* "speech_dtw/_dtw.pyx":331
  *             # Insertion
  *             i = i - 1
  *         elif tb_type == 2:             # <<<<<<<<<<<<<<
@@ -5589,18 +5556,18 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
     }
     __pyx_L12:;
 
-    /* "speech_dtw/_dtw.pyx":357
+    /* "speech_dtw/_dtw.pyx":334
  *             # Deletion
  *             j = j - 1
  *         path.append((i, j))             # <<<<<<<<<<<<<<
  * 
  *     return (path, cost_mat[N, M])
  */
-    __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_3 = PyInt_FromSsize_t(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_j); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_4 = PyInt_FromSsize_t(__pyx_v_j); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3);
@@ -5608,23 +5575,21 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
     PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_4);
     __pyx_t_3 = 0;
     __pyx_t_4 = 0;
-    __pyx_t_25 = __Pyx_PyList_Append(__pyx_v_path, __pyx_t_5); if (unlikely(__pyx_t_25 == ((int)-1))) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_25 = __Pyx_PyList_Append(__pyx_v_path, __pyx_t_5); if (unlikely(__pyx_t_25 == ((int)-1))) __PYX_ERR(0, 334, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
 
-  /* "speech_dtw/_dtw.pyx":359
+  /* "speech_dtw/_dtw.pyx":336
  *         path.append((i, j))
  * 
  *     return (path, cost_mat[N, M])             # <<<<<<<<<<<<<<
- * 
- * 
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_26 = __pyx_v_N;
   __pyx_t_27 = __pyx_v_M;
-  __pyx_t_5 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_26 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_27)) )))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_t_5 = PyFloat_FromDouble((*((double *) ( /* dim=1 */ ((char *) (((double *) ( /* dim=0 */ (__pyx_v_cost_mat.data + __pyx_t_26 * __pyx_v_cost_mat.strides[0]) )) + __pyx_t_27)) )))); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 359, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 336, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_v_path);
   __Pyx_GIVEREF(__pyx_v_path);
@@ -5636,7 +5601,7 @@ static PyObject *__pyx_pf_10speech_dtw_4_dtw_10multivariate_dtw(CYTHON_UNUSED Py
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "speech_dtw/_dtw.pyx":303
+  /* "speech_dtw/_dtw.pyx":280
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def multivariate_dtw(double[:, ::1] s, double[:, ::1] t, str metric="cosine"):             # <<<<<<<<<<<<<<
@@ -21640,7 +21605,7 @@ static PyModuleDef_Slot __pyx_moduledef_slots[] = {
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
     "_dtw",
-    __pyx_k_Dynamic_time_warping_cost_calcu, /* m_doc */
+    0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
   #else
@@ -21719,11 +21684,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_dtype_is_object, __pyx_k_dtype_is_object, sizeof(__pyx_k_dtype_is_object), 0, 0, 1, 1},
   {&__pyx_n_s_dur_normalize, __pyx_k_dur_normalize, sizeof(__pyx_k_dur_normalize), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
-  {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
   {&__pyx_n_s_error, __pyx_k_error, sizeof(__pyx_k_error), 0, 0, 1, 1},
   {&__pyx_n_s_euclidean, __pyx_k_euclidean, sizeof(__pyx_k_euclidean), 0, 0, 1, 1},
-  {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_flags, __pyx_k_flags, sizeof(__pyx_k_flags), 0, 0, 1, 1},
   {&__pyx_n_s_format, __pyx_k_format, sizeof(__pyx_k_format), 0, 0, 1, 1},
   {&__pyx_n_s_fortran, __pyx_k_fortran, sizeof(__pyx_k_fortran), 0, 0, 1, 1},
@@ -21761,7 +21724,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pack, __pyx_k_pack, sizeof(__pyx_k_pack), 0, 0, 1, 1},
   {&__pyx_n_s_path, __pyx_k_path, sizeof(__pyx_k_path), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
-  {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_checksum, __pyx_k_pyx_checksum, sizeof(__pyx_k_pyx_checksum), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_getbuffer, __pyx_k_pyx_getbuffer, sizeof(__pyx_k_pyx_getbuffer), 0, 0, 1, 1},
@@ -21803,8 +21765,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 42, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 139, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(1, 856, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 1038, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(2, 148, __pyx_L1_error)
@@ -21822,14 +21784,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "speech_dtw/_dtw.pyx":161
+  /* "speech_dtw/_dtw.pyx":139
  *         dist_func = &euclidean_dist
  *     else:
  *         raise ValueError("Unrecognized metric.")             # <<<<<<<<<<<<<<
  * 
  *     N = s.shape[0]
  */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Unrecognized_metric); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_s_Unrecognized_metric); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
 
@@ -22102,77 +22064,77 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
 
-  /* "speech_dtw/_dtw.pyx":60
+  /* "speech_dtw/_dtw.pyx":38
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def dp_cost(double[:, ::1] dist_mat):             # <<<<<<<<<<<<<<
  *     """
  *     Calculate the cost of the minimum-cost path through matrix `dist_mat`.
  */
-  __pyx_tuple__27 = PyTuple_Pack(8, __pyx_n_s_dist_mat, __pyx_n_s_dist_mat, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_tuple__27 = PyTuple_Pack(8, __pyx_n_s_dist_mat, __pyx_n_s_dist_mat, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__27);
   __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_dp_cost, 60, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_dp_cost, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 38, __pyx_L1_error)
 
-  /* "speech_dtw/_dtw.pyx":141
+  /* "speech_dtw/_dtw.pyx":119
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def multivariate_dtw_cost(             # <<<<<<<<<<<<<<
  *         double[:, ::1] s, double[:, ::1] t, str metric="cosine"
  *         ):
  */
-  __pyx_tuple__29 = PyTuple_Pack(10, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_metric, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs, __pyx_n_s_dist_func); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_tuple__29 = PyTuple_Pack(10, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_metric, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs, __pyx_n_s_dist_func); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__29);
   __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(3, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw_cost, 141, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(3, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw_cost, 119, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 119, __pyx_L1_error)
 
-  /* "speech_dtw/_dtw.pyx":184
+  /* "speech_dtw/_dtw.pyx":162
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_cosine(             # <<<<<<<<<<<<<<
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False
  *         ):
  */
-  __pyx_tuple__31 = PyTuple_Pack(9, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_dur_normalize, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_tuple__31 = PyTuple_Pack(9, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_dur_normalize, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__31);
   __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw_cost_cosine, 184, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw_cost_cosine, 162, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 162, __pyx_L1_error)
 
-  /* "speech_dtw/_dtw.pyx":224
+  /* "speech_dtw/_dtw.pyx":201
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean(             # <<<<<<<<<<<<<<
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False
  *         ):
  */
-  __pyx_tuple__33 = PyTuple_Pack(9, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_dur_normalize, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_tuple__33 = PyTuple_Pack(9, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_dur_normalize, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__33);
   __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(3, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw_cost_euclidean, 224, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(3, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw_cost_euclidean, 201, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 201, __pyx_L1_error)
 
-  /* "speech_dtw/_dtw.pyx":264
+  /* "speech_dtw/_dtw.pyx":241
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean_squared(             # <<<<<<<<<<<<<<
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False
  *         ):
  */
-  __pyx_tuple__35 = PyTuple_Pack(9, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_dur_normalize, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_tuple__35 = PyTuple_Pack(9, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_dur_normalize, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_cost_mat, __pyx_n_s_costs); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__35);
   __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(3, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw_cost_euclidean_2, 264, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(3, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw_cost_euclidean_2, 241, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 241, __pyx_L1_error)
 
-  /* "speech_dtw/_dtw.pyx":303
+  /* "speech_dtw/_dtw.pyx":280
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def multivariate_dtw(double[:, ::1] s, double[:, ::1] t, str metric="cosine"):             # <<<<<<<<<<<<<<
  *     """
  *     Calculate the DTW alignment between vector time series `s` and `t` and
  */
-  __pyx_tuple__37 = PyTuple_Pack(14, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_metric, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_i_penalty, __pyx_n_s_cost_mat, __pyx_n_s_costs, __pyx_n_s_dist_func, __pyx_n_s_traceback_mat, __pyx_n_s_path, __pyx_n_s_tb_type); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_tuple__37 = PyTuple_Pack(14, __pyx_n_s_s, __pyx_n_s_t, __pyx_n_s_metric, __pyx_n_s_N, __pyx_n_s_M, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_i_penalty, __pyx_n_s_cost_mat, __pyx_n_s_costs, __pyx_n_s_dist_func, __pyx_n_s_traceback_mat, __pyx_n_s_path, __pyx_n_s_tb_type); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__37);
   __Pyx_GIVEREF(__pyx_tuple__37);
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(3, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw, 303, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(3, 0, 14, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_speech_dtw__dtw_pyx, __pyx_n_s_multivariate_dtw, 280, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 280, __pyx_L1_error)
 
   /* "View.MemoryView":286
  *         return self.name
@@ -22571,7 +22533,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("_dtw", __pyx_methods, __pyx_k_Dynamic_time_warping_cost_calcu, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("_dtw", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -22617,94 +22579,94 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "speech_dtw/_dtw.pyx":27
+  /* "speech_dtw/_dtw.pyx":5
  * from cpython cimport bool
  * from libc.math cimport sqrt
  * import numpy as np             # <<<<<<<<<<<<<<
  * 
  * cdef extern from "float.h":
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "speech_dtw/_dtw.pyx":60
+  /* "speech_dtw/_dtw.pyx":38
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def dp_cost(double[:, ::1] dist_mat):             # <<<<<<<<<<<<<<
  *     """
  *     Calculate the cost of the minimum-cost path through matrix `dist_mat`.
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_1dp_cost, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_1dp_cost, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_dp_cost, __pyx_t_1) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_dp_cost, __pyx_t_1) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "speech_dtw/_dtw.pyx":141
+  /* "speech_dtw/_dtw.pyx":119
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def multivariate_dtw_cost(             # <<<<<<<<<<<<<<
  *         double[:, ::1] s, double[:, ::1] t, str metric="cosine"
  *         ):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_3multivariate_dtw_cost, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_3multivariate_dtw_cost, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw_cost, __pyx_t_1) < 0) __PYX_ERR(0, 141, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw_cost, __pyx_t_1) < 0) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "speech_dtw/_dtw.pyx":184
+  /* "speech_dtw/_dtw.pyx":162
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_cosine(             # <<<<<<<<<<<<<<
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False
  *         ):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_5multivariate_dtw_cost_cosine, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_5multivariate_dtw_cost_cosine, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw_cost_cosine, __pyx_t_1) < 0) __PYX_ERR(0, 184, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw_cost_cosine, __pyx_t_1) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "speech_dtw/_dtw.pyx":224
+  /* "speech_dtw/_dtw.pyx":201
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean(             # <<<<<<<<<<<<<<
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False
  *         ):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_7multivariate_dtw_cost_euclidean, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_7multivariate_dtw_cost_euclidean, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw_cost_euclidean, __pyx_t_1) < 0) __PYX_ERR(0, 224, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw_cost_euclidean, __pyx_t_1) < 0) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "speech_dtw/_dtw.pyx":264
+  /* "speech_dtw/_dtw.pyx":241
  * @cython.wraparound(False)
  * @cython.cdivision(True)
  * def multivariate_dtw_cost_euclidean_squared(             # <<<<<<<<<<<<<<
  *         double[:, ::1] s, double[:, ::1] t, bool dur_normalize=False
  *         ):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_9multivariate_dtw_cost_euclidean_squared, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_9multivariate_dtw_cost_euclidean_squared, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw_cost_euclidean_2, __pyx_t_1) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw_cost_euclidean_2, __pyx_t_1) < 0) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "speech_dtw/_dtw.pyx":303
+  /* "speech_dtw/_dtw.pyx":280
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
  * def multivariate_dtw(double[:, ::1] s, double[:, ::1] t, str metric="cosine"):             # <<<<<<<<<<<<<<
  *     """
  *     Calculate the DTW alignment between vector time series `s` and `t` and
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_11multivariate_dtw, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10speech_dtw_4_dtw_11multivariate_dtw, NULL, __pyx_n_s_speech_dtw__dtw); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw, __pyx_t_1) < 0) __PYX_ERR(0, 303, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_multivariate_dtw, __pyx_t_1) < 0) __PYX_ERR(0, 280, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "speech_dtw/_dtw.pyx":1
- * """             # <<<<<<<<<<<<<<
- * Dynamic time warping cost calculation functions.
- * 
+ * cimport cython             # <<<<<<<<<<<<<<
+ * cimport numpy as np
+ * from cpython cimport bool
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -26035,124 +25997,6 @@ __pyx_fail:
     }
 }
 
-/* MemviewDtypeToObject */
-  static CYTHON_INLINE PyObject *__pyx_memview_get_double(const char *itemp) {
-    return (PyObject *) PyFloat_FromDouble(*(double *) itemp);
-}
-static CYTHON_INLINE int __pyx_memview_set_double(const char *itemp, PyObject *obj) {
-    double value = __pyx_PyFloat_AsDouble(obj);
-    if ((value == (double)-1) && PyErr_Occurred())
-        return 0;
-    *(double *) itemp = value;
-    return 1;
-}
-
-/* Print */
-  #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
-static PyObject *__Pyx_GetStdout(void) {
-    PyObject *f = PySys_GetObject((char *)"stdout");
-    if (!f) {
-        PyErr_SetString(PyExc_RuntimeError, "lost sys.stdout");
-    }
-    return f;
-}
-static int __Pyx_Print(PyObject* f, PyObject *arg_tuple, int newline) {
-    int i;
-    if (!f) {
-        if (!(f = __Pyx_GetStdout()))
-            return -1;
-    }
-    Py_INCREF(f);
-    for (i=0; i < PyTuple_GET_SIZE(arg_tuple); i++) {
-        PyObject* v;
-        if (PyFile_SoftSpace(f, 1)) {
-            if (PyFile_WriteString(" ", f) < 0)
-                goto error;
-        }
-        v = PyTuple_GET_ITEM(arg_tuple, i);
-        if (PyFile_WriteObject(v, f, Py_PRINT_RAW) < 0)
-            goto error;
-        if (PyString_Check(v)) {
-            char *s = PyString_AsString(v);
-            Py_ssize_t len = PyString_Size(v);
-            if (len > 0) {
-                switch (s[len-1]) {
-                    case ' ': break;
-                    case '\f': case '\r': case '\n': case '\t': case '\v':
-                        PyFile_SoftSpace(f, 0);
-                        break;
-                    default:  break;
-                }
-            }
-        }
-    }
-    if (newline) {
-        if (PyFile_WriteString("\n", f) < 0)
-            goto error;
-        PyFile_SoftSpace(f, 0);
-    }
-    Py_DECREF(f);
-    return 0;
-error:
-    Py_DECREF(f);
-    return -1;
-}
-#else
-static int __Pyx_Print(PyObject* stream, PyObject *arg_tuple, int newline) {
-    PyObject* kwargs = 0;
-    PyObject* result = 0;
-    PyObject* end_string;
-    if (unlikely(!__pyx_print)) {
-        __pyx_print = PyObject_GetAttr(__pyx_b, __pyx_n_s_print);
-        if (!__pyx_print)
-            return -1;
-    }
-    if (stream) {
-        kwargs = PyDict_New();
-        if (unlikely(!kwargs))
-            return -1;
-        if (unlikely(PyDict_SetItem(kwargs, __pyx_n_s_file, stream) < 0))
-            goto bad;
-        if (!newline) {
-            end_string = PyUnicode_FromStringAndSize(" ", 1);
-            if (unlikely(!end_string))
-                goto bad;
-            if (PyDict_SetItem(kwargs, __pyx_n_s_end, end_string) < 0) {
-                Py_DECREF(end_string);
-                goto bad;
-            }
-            Py_DECREF(end_string);
-        }
-    } else if (!newline) {
-        if (unlikely(!__pyx_print_kwargs)) {
-            __pyx_print_kwargs = PyDict_New();
-            if (unlikely(!__pyx_print_kwargs))
-                return -1;
-            end_string = PyUnicode_FromStringAndSize(" ", 1);
-            if (unlikely(!end_string))
-                return -1;
-            if (PyDict_SetItem(__pyx_print_kwargs, __pyx_n_s_end, end_string) < 0) {
-                Py_DECREF(end_string);
-                return -1;
-            }
-            Py_DECREF(end_string);
-        }
-        kwargs = __pyx_print_kwargs;
-    }
-    result = PyObject_Call(__pyx_print, arg_tuple, kwargs);
-    if (unlikely(kwargs) && (kwargs != __pyx_print_kwargs))
-        Py_DECREF(kwargs);
-    if (!result)
-        return -1;
-    Py_DECREF(result);
-    return 0;
-bad:
-    if (kwargs != __pyx_print_kwargs)
-        Py_XDECREF(kwargs);
-    return -1;
-}
-#endif
-
 /* Declarations */
   #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -26580,43 +26424,6 @@ no_fail:
     __Pyx_RefNannyFinishContext();
     return new_mvs;
 }
-
-/* PrintOne */
-  #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
-static int __Pyx_PrintOne(PyObject* f, PyObject *o) {
-    if (!f) {
-        if (!(f = __Pyx_GetStdout()))
-            return -1;
-    }
-    Py_INCREF(f);
-    if (PyFile_SoftSpace(f, 0)) {
-        if (PyFile_WriteString(" ", f) < 0)
-            goto error;
-    }
-    if (PyFile_WriteObject(o, f, Py_PRINT_RAW) < 0)
-        goto error;
-    if (PyFile_WriteString("\n", f) < 0)
-        goto error;
-    Py_DECREF(f);
-    return 0;
-error:
-    Py_DECREF(f);
-    return -1;
-    /* the line below is just to avoid C compiler
-     * warnings about unused functions */
-    return __Pyx_Print(f, NULL, 0);
-}
-#else
-static int __Pyx_PrintOne(PyObject* stream, PyObject *o) {
-    int res;
-    PyObject* arg_tuple = PyTuple_Pack(1, o);
-    if (unlikely(!arg_tuple))
-        return -1;
-    res = __Pyx_Print(stream, arg_tuple, 1);
-    Py_DECREF(arg_tuple);
-    return res;
-}
-#endif
 
 /* CIntFromPy */
   static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *x) {
