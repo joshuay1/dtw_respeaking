@@ -1,6 +1,8 @@
 ## DTW Word-Spotting Experiement
 
-This repository contains code that was used for a word-spotting (Query-by-Example) experiment using the DTW technique with MFCC features. The expriment aims to examine the effect of the linguistic practice of Respeaking, described in Reiman's BOLD method, on word-spotting. This experiment is conducted in the context of collaborative transcription for indigenous or endangered languages. The languages used in this particular experiment are Kunwinjku and a simulated low-resource English. The main processing ipynb files are contained in the word_spotting folder. 
+This repository contains code that was used for a word-spotting (Query-by-Example) experiment using the DTW technique with MFCC features. The expriment aims to examine the effect of the linguistic practice of Respeaking, described in Reiman's BOLD method, on word-spotting. This experiment is conducted in the context of collaborative transcription for indigenous or endangered languages. The languages used in this particular experiment are Kunwinjku and a simulated low-resource English. The result of this experiement shows the positive effect of respeaking on word-spotting. It also demonstrates how additional collaborative tasks in respeaking can be included to significantly improve the performance of word-spotting in the transcription pipeline. 
+
+The main processing ipynb files are contained in the word_spotting folder. 
 
 ## Kunwinjku
 
